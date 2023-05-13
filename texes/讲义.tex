@@ -1,0 +1,151 @@
+
+\documentclass[UTF8,a4paper]{ctexrep}
+\usepackage{amsmath}
+\usepackage{ctex}
+\usepackage{titlesec}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{amsfonts,amssymb}
+\usepackage[a4paper]{geometry}
+\usepackage{CJK}
+\usepackage{upgreek}
+\usepackage{amsmath}
+\usepackage{color}
+\usepackage{titlesec}
+\usepackage{mathtools}
+
+\title{{\Huge 物理教程:从入门到入土}}
+\author{{\large Alex Zhou}}
+\date{{\large Start : 2023 年 4 月 21 日}}
+
+\titleclass{\subsubsubsection}{straight}[\subsection]
+
+\newcounter{subsubsubsection}[subsubsection]
+\renewcommand\thesubsubsubsection{\thesubsubsection.\arabic{subsubsubsection}}
+\renewcommand\theparagraph{\thesubsubsubsection.\arabic{paragraph}}
+
+\titleformat{\subsubsubsection}
+{\normalfont\normalsize\bfseries}{\thesubsubsubsection}{1em}{}
+\titlespacing*{\subsubsubsection}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+\makeatletter
+\renewcommand\paragraph{\@startsection{paragraph}{5}{\z@}%
+	{3.25ex \@plus1ex \@minus.2ex}%
+	{-1em}%
+	{\normalfont\normalsize\bfseries}}
+\renewcommand\subparagraph{\@startsection{subparagraph}{6}{\parindent}%
+	{3.25ex \@plus1ex \@minus .2ex}%
+	{-1em}%
+	{\normalfont\normalsize\bfseries}}
+\def\toclevel@subsubsubsection{4}
+\def\toclevel@paragraph{5}
+\def\toclevel@paragraph{6}
+\def\l@subsubsubsection{\@dottedtocline{4}{7em}{4em}}
+\def\l@paragraph{\@dottedtocline{5}{10em}{5em}}
+\def\l@subparagraph{\@dottedtocline{6}{14em}{6em}}
+\makeatother
+
+\setcounter{secnumdepth}{4} \geometry{left=2cm,right=2cm,top=2.8cm,bottom=3.2cm}
+\setlength{\footskip}{3cm}
+\setcounter{section}{-1}
+\usepackage{hyperref} 
+\begin{document}
+	\maketitle 
+	\setcounter{page}{0}
+	%\usepackage[colorlinks,linkcolor=cyan]{hyperref}
+	\section*{序:大道至简}
+    欢迎来到《物理教程:从入门到入土》!首先请允许我代表本书全体编写成员对读者表示感谢.本书(由于厚度原因,其实更适合叫做讲义)追求大道至简的原则.世面上大部分物理相关的书籍都十分厚重,主要原因就是他们追求的是所谓严谨和完美.为了严谨性和实际性,它们花费大量笔墨于实验内容和"拓展阅读"(如"托里拆利发现大气压强的故事").我当然不是在贬低这些书.物理的源头当然是在一次次实验中产生的,但是我们不如把更多心思放在学系所必需的知识点上.譬如,数学计算.本书的设计理念便是如此:它旨在帮助大家复习和进一步拓展高中物理的主要概念,并同时致力于更多的数学问题求解.因此,无论是否第一次接触高中物理,还是为了备考竞赛,我认为那些太过无用的知识(如:匀速直线运动等内容)大可以进行省略.虽然我们删减了部分知识点,但书中每道例题都经过精挑细选并制定了详细的解答,既有简单的小试牛刀,更有综合性的过关斩将,难度分配均衡.同时,每一章节的习题部分虽然题目不多,但大多拥有极高的针对性.毕竟,在物理的学习中,我们更注重方法,而不是具体的计算,要明白题目的考点和解题步骤大纲,头脑中有很强的逻辑性,将千篇一律的解题步骤深深铭刻在脑海中.因此,我希望,也相信本书会对读者你有些帮助.此外,物理的学习不仅限于书面,我更希望你能将物理知识真正运用到实际问题中去.用一句话结束这个序吧:海阔凭鱼跃,天高任鸟飞.好运!(by编者小组·$\eta$)
+	\section*{主编的话}
+	欢迎同学们来到《物理教程:从入门到入土》.相信你在阅读此书之前,一定已经自己阅读了不少物理书籍吧.我认为,想要学好物理的关键不仅仅在于步步为营的精打细算,还有对每一个概念和知识点的清楚理解.我们先来讲讲书名吧.本来本书的名字定为《一本小物理书》.原因很简单,本书从厚度上来说并不算厚,因此还称不上是一本真正的、全面的物理书籍.而之所以改成了现在的《物理教程:从入门到入土》,主要是我们考虑到难度问题,从一开始的较为简易逐渐加难,直到高考压轴的相对论和我们补充的量子力学初步.请务必不要被它们的名称吓到!
+
+
+	再来讲讲内容.每一个概念和知识点,我们深入浅出,以最直白的方式呈现出来.正如$\eta$所说的那样,我们追求所谓大道至简.再复杂的概念也能够以浅显的语言表述出来,哪怕是量子力学.阅读时,请务必\textbf{慢下来},放平心态.无论遇上什么样的困难都请不要放弃.我很欢迎读者们指出错误,也欢迎读者有关于物理的疑问向我提出.请电邮:ETRO\_gfyx@163.com.
+	%日后将创建本书编写组专属邮箱
+
+
+	最后,再来讲讲我为什么要写这本书.拥有一本属于自己的物理书(或者讲义)一直是我自幼以来的梦想,而如今有了这样做的能力,自然是第一时间写下来了.在我的物理学习过程中,使用的教材包括但不限于:《物理(实验班用)上册》\cite{25}《物理(实验班用)下册》\cite{26}《高中物理奥赛指导》\cite{27}.在我自己的学习过程中,它们略微有些不足以满足所有我的需求,因而希望这本书能帮到你.(by编者小组·$\omega$(主编))
+	\newpage
+	\section*{前言:学习指南}
+	\paragraph{1.} \ \ \ \ 想必大家都看得出来,本讲义是由\LaTeX\cite{21}提供排版的.我非常喜欢这一排版工具,它比Word一类要好的多!\\以下文献可能可以帮助到你学习\LaTeX:\cite{22}\cite{23}\cite{24}
+	\paragraph{2.} \ \ \ \ 本书中存在不少勘误,包括一些故意留下的,还有一些不小心留下的.那些故意留下的错误大多都标明了出来并希望读者给予修正,我希望通过这样增加作者与读者间的互动.
+	\paragraph{3.} \ \ \ \ 讲义中不少公式是从Mathematica中引入,也有一些图片来自Python的matplotlib或Geogebra.它们是非常好的数学工具和图片引擎.强烈推荐它们!\\Mathematica官网直达:\href{https://www.wolfram.com/mathematica/}{\textbf{Mathematica}}\\Geogebra下载直达:\href{https://www.geogebra.org/}{\textbf{Geogebra}}\\本文电子版网页直达:\href{www.baidu.com}{\textbf{电子物理书}} 
+	\paragraph{4.} \ \ \ \ 本书起稿于2023.4.21.
+	\paragraph{5.} \ \ \ \ 一些常见问题的答案.\\\textbf{这本讲义(或者书)为什么这么薄?}这本书仅供学生自主学习(其实更多偏向复习),略去了一般教科书上的拓展内容等.我们去除了大部分的非专业性内容,但还是保留了一部分!\\\textbf{这本书上的推导过程有一些无法理解怎么办?}首先,本书中大量的使用了微积分技巧(如果你不清楚什么是微积分,建议阅读书目《普林斯顿·微积分读本》或你自己的高数教材).切记,在物理中数学往往是十分重要的!当然,不得不承认的是,为了减少篇幅,有一些过程出现了跳步.如果追求严谨,那你大可以去阅读《普林斯顿·数学分析读本》.那本书很适合你.此外,若仍然有对本书中表达式感到不解/奇怪,可能包括但不限于这些情况:\\1.没有积分主元.这种情况默认对时间$t$积分,也不排除对角度的积分.\\2.定积分无上下限.这种情况我们会在最后一步计算时加入,当然,这样写书是不好的!\\\textbf{如果我数学功底不好,还能继续阅读吗?}答案是肯定的.但还是那句话,数学在物理中相当重要.但在日常计算中,你可以使用如Mathematica等软件辅助.注意,这并非长久之计!\\\textbf{带**的章节是什么意思?}本书中有一些章节名字中带有**的标记.这意味着这一节是拓展阅读.不阅读它们不会对后续的学习造成影响,如果你不想学习得再深入些!
+	\paragraph{6.}\ \ \ \  部分特殊字体演示:\\$\boldsymbol{\mathrm{F}}\to$向量(本例中为力F)的标量计算\\ $a\to$物理量(本例中为加速度a) \\\textbf{机械运动}$\to$特殊名词(本例中为机械运动)名称或例题/公式/定理序号或超链接入口\\ {\CJKfamily{zhkai} 思考}$\to$一个需要你自己动手操作的例子(本例中为思考题)或某定理(或命题)的证明过程\\{\fangsong 补充}$\to$补充内容,即非必要阅读的内容\\\textsf{J}$\to$物理量的单位\\注:遇到$\pi$和$\uppi$,或\ .\ 和\ 。\ 一类意思相同但看起来不同的字母,不必惊慌,它们只是不同作者间未统一的格式... 
+	\paragraph{7.最后,预祝同学们学习顺利!}
+	%第三点中的url链接在本文写完后修改,现在用百度占位
+	\begin{multicols}{2}
+	\tableofcontents
+	\end{multicols}{2}
+	\newpage 
+	\onecolumn
+	\CTEXsetup[format+={\Huge}]{part}
+	\CTEXsetup[format+={\huge}]{section} 
+	\setcounter{page}{1}
+	\part{ 经典物理学}
+	\input{1}
+	\newpage
+	\input{2}
+	\newpage
+	\include{3}
+	\newpage
+	\include{4}
+	\newpage
+	\include{5}
+	\newpage
+	\include{6}
+	\newpage
+	\include{7}
+	\newpage
+	\include{8}
+	\newpage
+	\part{前现代和近现代物理学}
+	\include{9}
+	\newpage
+	\include{11}
+	\newpage
+	\include{12}
+	\newpage
+	\include{13}
+	\newpage
+	\include{10}
+	\newpage 
+	\part{近代物理和天体物理学初步}
+	\include{14}
+	\newpage
+	\input{15}
+	\newpage
+	\part{综合复习}
+	\CTEXsetup[format+={\huge}]{section} 
+	\include{16}
+	\newpage
+	\part{后记}
+	\section*{致谢} 
+	感谢阅读致谢.
+	
+	
+	首先请允许我作为本书主编感谢所有直接或间接参与了本书编写的人员.他们包括:我的数学和物理老师、同学和ETRO学习小组的成员们.
+	
+	
+	感谢CSDN和\TeX 社区的人们,他们提供了大量可靠的排版方式,才有了这样的一本书.当然也归功于这两个网站的工作人员!(本文电子版便发布在CSDN上(GitHub上有没有呢?emm$\cdots$)以完全开源使用)
+	
+	
+	感谢每一位在我物理学习和信息技术中提供过帮助的人们,包括一些完全陌生的人们.
+	
+	
+	感谢每一位我曾经遇到过的优秀的人们:感谢你们激励我学习,并写下这本书.
+	
+	
+	致每一位对物理热爱的你:愿物理成为生命中的那道光.
+	\addcontentsline{toc}{section}{致谢}
+	\newpage
+	 
+	\bibliographystyle{unsrt}
+	\bibliography{cxk.bib}	
+	\addcontentsline{toc}{part}{参考文献}	 
+	 
+	
+\end{document}
